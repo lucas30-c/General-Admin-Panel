@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Main from "../pages/main";
 import Home from "../pages/home";
 import User from "../pages/user";
@@ -10,6 +10,11 @@ const routes = [
     path: "/",
     Component: Main,
     children: [
+      // to redirect
+      {
+        path: "/",
+        element: <Navigate to="home" replace />,
+      },
       {
         path: "home",
         Component: Home,
